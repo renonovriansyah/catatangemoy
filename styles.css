@@ -1,0 +1,164 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Warna latar belakang lebih lembut */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px; /* Lebar maksimum kontainer */
+    padding: 30px;
+    background-color: #ffffff; /* Warna latar belakang putih */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih halus */
+    border-radius: 8px; /* Sudut yang lebih halus */
+    text-align: center;
+    margin: 50px auto; /* Margin otomatis untuk pusat kontainer */
+}
+
+h1 {
+    color: #333; /* Warna teks judul */
+    margin-bottom: 20px;
+    font-size: 24px; /* Ukuran font judul yang lebih besar */
+}
+
+/* Memusatkan tombol Tambah Pengeluaran dan Tambah Pemasukan */
+.input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Jarak antara tombol */
+    margin-bottom: 20px; /* Jarak bawah untuk pemisahan */
+}
+
+button {
+    padding: 12px 20px; /* Padding tombol lebih besar */
+    margin: 5px;
+    background-color: #4CAF50; /* Warna tombol */
+    color: #ffffff; /* Warna teks tombol */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Transisi saat hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Warna saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Layout untuk input pengeluaran */
+#inputContainerPengeluaran {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memusatkan isi di tengah */
+    margin-bottom: 20px; /* Memberikan jarak di bawah form */
+}
+
+.input-row {
+    display: flex;
+    justify-content: center; /* Memusatkan kategori dan jumlah */
+    gap: 20px; /* Jarak antara kolom kategori dan jumlah */
+    width: 100%; /* Memastikan baris menggunakan seluruh lebar */
+}
+
+#kategoriContainer,
+#jumlahContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%; /* Membatasi lebar masing-masing agar proporsional */
+    max-width: 300px; /* Batas lebar agar tidak terlalu besar */
+}
+
+label {
+    font-weight: bold; /* Membuat label lebih tebal */
+    margin-bottom: 5px; /* Menambahkan ruang di bawah label */
+}
+
+select,
+input[type="text"] {
+    width: 100%; /* Memastikan lebar input dan dropdown 100% dari kontainer */
+    padding: 10px; /* Menambahkan padding untuk kenyamanan */
+    border: 1px solid #ccc; /* Warna border netral */
+    border-radius: 5px; /* Membuat sudut lebih halus */
+    font-size: 16px; /* Ukuran font lebih besar */
+    transition: border-color 0.3s; /* Transisi saat fokus */
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: #4CAF50; /* Mengubah warna border saat fokus */
+    outline: none; /* Menghilangkan outline default */
+}
+
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memusatkan konten di tengah */
+    margin-top: 20px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column; /* Mengatur elemen kategori dan jumlah dalam kolom */
+    align-items: center; /* Memusatkan elemen di tengah */
+    width: 100%;
+    gap: 10px; /* Jarak antara kategori dan jumlah */
+    margin-bottom: 20px;
+}
+
+#kategoriContainer,
+#jumlahContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+#jumlahContainer {
+    text-align: center;
+}
+
+#actionButtons {
+    display: flex;
+    justify-content: center; /* Memusatkan tombol Batal dan Simpan */
+    gap: 10px; /* Jarak antara tombol */
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Memberikan ruang di atas tabel */
+}
+
+table, th, td {
+    border: 1px solid #ddd; /* Border tabel */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left; /* Teks di kiri */
+    background-color: #f9f9f9; /* Latar belakang sel tabel */
+}
+
+th {
+    background-color: #4CAF50; /* Warna latar belakang header tabel */
+    color: white; /* Warna teks header tabel */
+}
+
+#totalUang {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold; /* Menebalkan teks total uang */
+}
+
+button.reset {
+    background-color: #f44336; /* Warna merah untuk tombol reset */
+}
+
+button.reset:hover {
+    background-color: #d32f2f; /* Warna saat hover untuk tombol reset */
+}

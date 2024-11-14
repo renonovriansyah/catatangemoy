@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catatan Keuangan Gendut</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Catatan Keuangan Gendut</h1>
+        
+        <div class="input-group">
+            <button id="tambahPengeluaran" onclick="tambahPengeluaran()">Tambah Pengeluaran</button>
+            <button id="tambahPemasukan" onclick="tambahPemasukan()">Tambah Pemasukan</button>
+        </div>
+
+        <input type="hidden" id="currentType" value=""> <!-- Input tersembunyi untuk menyimpan tipe -->
+
+        <div id="inputContainer" style="display:none;">
+            <div class="input-row">
+                <div id="kategoriContainer">
+                    <label for="kategori" id="kategoriLabel">Pilih Kategori:</label>
+                    <select id="kategori">
+                        <option value="makanan">Makanan</option>
+                        <option value="transportasi">Bensin Motor</option>
+                        <option value="pulsa">Paket & Wifi</option>
+                        <option value="akademik">Kebutuhan Kuliah</option>
+                        <option value="pergimas">Pergi Dengan Mas</option>
+                        <option value="pergikawan">Pergi Dengan Teman</option>
+                        <option value="lainnya">Pengeluaran Tak Terduga</option>
+                    </select>
+                </div>
+
+                <div id="jumlahContainer" style="text-align: center;">
+                    <label for="jumlah">Jumlah (Rp):</label>
+                    <input type="text" id="jumlah" placeholder="Masukkan jumlah" oninput="formatInput()" style="width: 50%; margin: 0 auto;">
+                </div>
+            </div>
+
+            <div id="actionButtons">
+                <button onclick="cancelInput()">Batal</button>
+                <button onclick="tambahData(document.getElementById('currentType').value)">Simpan</button>
+            </div>
+        </div>
+
+        <table id="tabelData">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Waktu</th>
+                    <th>Kategori</th>
+                    <th>Jumlah (Rp)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="totalUang"><h3>Total Uang Saat Ini: Rp 0</h3></div>
+        <button onclick="resetData()" class="reset">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
