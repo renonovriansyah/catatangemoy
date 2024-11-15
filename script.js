@@ -139,9 +139,8 @@ function hitungTotalUang() {
     let totalUang = totalPemasukan - totalPengeluaran;
 
     document.getElementById("totalUang").innerHTML = `
-        <h3>Sekarang Duit Gemoy Rp. ${totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
-    `;
-}
+    <h3>Sekarang Duit Gemoy Rp. ${totalUang.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
+`;}
 
 // Menghapus semua data dan reset total uang
 function resetData() {

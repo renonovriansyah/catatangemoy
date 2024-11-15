@@ -179,6 +179,7 @@ button.reset:hover {
     overflow: auto; /* Enable scroll jika modal besar */
     background-color: rgb(0, 0, 0); /* Latar belakang gelap */
     background-color: rgba(0, 0, 0, 0.4); /* Efek transparan */
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Konten Modal */
@@ -191,6 +192,10 @@ button.reset:hover {
     text-align: center;
 }
 
+.modal.show {
+    display: block;
+    opacity: 1;
+}
 /* Tombol Close (X) */
 .close-btn {
     color: #aaa;
@@ -302,6 +307,7 @@ input:checked + .slider:before {
 }
 
 /* Gaya khusus untuk mode gelap */
+/* Gaya untuk mode gelap */
 .dark-mode {
     background-color: #121212;
     color: #e0e0e0;
@@ -321,7 +327,7 @@ input:checked + .slider:before {
 }
 
 /* Pastikan tombol tetap hijau dalam mode gelap */
-button {
+.dark-mode button {
     background-color: #4CAF50; /* Warna hijau */
     color: #ffffff;
     border: none;
@@ -331,9 +337,8 @@ button {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover {
+.dark-mode button:hover {
     background-color: #45a049; /* Warna hijau lebih gelap saat hover */
-    transform: scale(1.05);
 }
 
 .dark-mode button {
@@ -370,9 +375,11 @@ button:hover {
     background-color: #4CAF50;
     color: #ffffff;
 }
+
 .dark-mode #totalUang {
     color: #ffffff; /* Mengubah warna teks menjadi putih */
 }
+
 /* Tombol reset tetap merah dalam mode gelap */
 .dark-mode button.reset {
     background-color: #f44336; /* Warna merah untuk tombol reset */
@@ -383,4 +390,15 @@ button:hover {
 .dark-mode button.reset:hover {
     background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
     font-weight: bold; /* Membuat teks tombol menjadi tebal */
+}
+
+/* Gaya untuk modal dalam mode gelap */
+.dark-mode .modal {
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap dengan transparansi */
+}
+
+/* Gaya konten modal dalam mode gelap */
+.dark-mode .modal-content {
+    background-color: #333333; /* Latar belakang konten modal lebih gelap */
+    color: #ffffff; /* Warna teks putih */
 }
