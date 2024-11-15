@@ -154,8 +154,17 @@ th {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
+    white-space: nowrap; /* Hindari teks terpotong menjadi dua baris */
+    overflow: hidden; /* Sembunyikan overflow jika ada */
+    text-overflow: ellipsis; /* Tambahkan '...' jika teks terlalu panjang */
     text-align: center;
     font-weight: bold; /* Menebalkan teks total uang */
+}
+@media (max-width: 600px) {
+    #totalUang h3 {
+        font-size: 14px; /* Ukuran font lebih kecil di layar kecil */
+        text-align: center; /* Pusatkan teks */
+    }
 }
 
 button.reset {

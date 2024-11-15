@@ -91,6 +91,7 @@ function tambahData(tipe) {
     const tanggal = new Date();
     const tanggalStr = tanggal.toISOString().split("T")[0];
     const waktuStr = tanggal.toLocaleTimeString("id-ID");
+    
 
     if (jumlah <= 0) {
         alert("Masukkan Jumlahnya Dulu Gemoy");
@@ -120,7 +121,7 @@ function updateTabel() {
             <td>${item.tanggal}</td>
             <td>${item.waktu}</td>
             <td>${capitalizeWords(daftarKategori[item.kategori] || item.kategori)}</td>
-            <td>Rp ${item.jumlah.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>Rp. ${item.jumlah.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
         `;
         tbody.appendChild(row); // Tambahkan baris ke tabel
     });
@@ -138,9 +139,14 @@ function hitungTotalUang() {
 
     let totalUang = totalPemasukan - totalPengeluaran;
 
+    // Format angka dengan titik sebagai pemisah ribuan
+    let formattedTotal = totalUang.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+    // Memasukkan total uang ke dalam elemen HTML
     document.getElementById("totalUang").innerHTML = `
-    <h3>Sekarang Duit Gemoy Rp. ${totalUang.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
-`;}
+        <h3>Sekarang Duit Gemoy Rp. ${formattedTotal}</h3>
+    `;
+}
 
 // Menghapus semua data dan reset total uang
 function resetData() {
