@@ -1,11 +1,8 @@
-/* Untuk layar dengan lebar maksimum 768px (tablet atau ponsel) */
-@media (max-width: 768px) {
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f4f8; /* Warna latar belakang lebih lembut */
     margin: 0;
     padding: 0;
-}
 }
 
 .container {
@@ -242,7 +239,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8%;
+    width: 60px;
     height: 34px;
 }
 
@@ -288,7 +285,7 @@ button:hover {
     position: absolute;
     content: "";
     height: 26px;
-    width: 43%;
+    width: 26px;
     left: 4px;
     bottom: 4px;
     background-color: black;
