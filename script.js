@@ -21,6 +21,24 @@ const daftarKategori = {
 function capitalizeWords(str) {
     return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 }
+const toggleDarkMode = document.getElementById('toggleDarkMode');
+
+toggleDarkMode.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+
+    // Menyimpan preferensi pengguna
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+});
+
+// Mengaktifkan dark mode jika diatur sebelumnya
+window.onload = () => {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        toggleDarkMode.checked = true; // Set checkbox jika dark mode aktif
+    }
+};
 
 function formatInput() {
     const inputField = document.getElementById("jumlah");
@@ -75,7 +93,7 @@ function tambahData(tipe) {
     const waktuStr = tanggal.toLocaleTimeString("id-ID");
 
     if (jumlah <= 0) {
-        alert("Masukkan jumlah yang valid.");
+        alert("Masukkan Jumlahnya Dulu Gemoy");
         return;
     }
 
@@ -121,7 +139,7 @@ function hitungTotalUang() {
     let totalUang = totalPemasukan - totalPengeluaran;
 
     document.getElementById("totalUang").innerHTML = `
-        <h3>Total Uang Saat Ini: Rp ${totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+        <h3>Sekarang Duit Gemoy Rp. ${totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
     `;
 }
 

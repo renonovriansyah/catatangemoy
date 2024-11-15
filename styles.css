@@ -25,6 +25,7 @@ h1 {
 .input-group {
     display: flex;
     justify-content: center;
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
     gap: 10px; /* Jarak antara tombol */
     margin-bottom: 20px; /* Jarak bawah untuk pemisahan */
 }
@@ -32,6 +33,7 @@ h1 {
 button {
     padding: 12px 20px; /* Padding tombol lebih besar */
     margin: 5px;
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
     background-color: #4CAF50; /* Warna tombol */
     color: #ffffff; /* Warna teks tombol */
     border: none;
@@ -158,10 +160,12 @@ th {
 
 button.reset {
     background-color: #f44336; /* Warna merah untuk tombol reset */
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
 }
 
 button.reset:hover {
     background-color: #d32f2f; /* Warna saat hover untuk tombol reset */
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
 }
 /* Modal - Perhatian */
 .modal {
@@ -215,13 +219,168 @@ button:focus {
 button#confirmReset {
     background-color: red;
     color: white;
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
 }
 
 button#confirmReset:hover {
     background-color: darkred;
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
 }
 
 button:hover {
     background-color: #ddd;
 }
 
+/* Style untuk switch */
+.switch {
+    position: relative;
+    top: 15px;
+    left:690px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 34px;
+}
+
+.switch i {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-left {
+    left: 7px;
+    bottom: -px;
+    z-index: 2; /* Menempatkan ikon matahari di depan */
+    color: #f8f8ff; /* Warna kuning untuk matahari */
+}
+
+.icon-right {
+    right: 7px;
+    z-index: 1; /* Ikon bulan di belakang */
+    color: #555; /* Warna abu-abu untuk bulan */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #ccc;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Gaya khusus untuk mode gelap */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Gaya untuk kontainer dan header */
+.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .slider:before {
+    background-color: white; /* Mengubah warna lingkaran menjadi putih di dark mode */
+}
+.dark-mode h1 {
+    color: #ffffff;
+}
+
+/* Pastikan tombol tetap hijau dalam mode gelap */
+button {
+    background-color: #4CAF50; /* Warna hijau */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+    transform: scale(1.05);
+}
+
+.dark-mode button {
+    background-color: #4CAF50; /* Override warna tombol di mode gelap */
+    color: #ffffff;
+}
+
+.dark-mode button:hover {
+    background-color: #45a049;
+}
+
+/* Gaya input */
+.dark-mode input[type="text"],
+.dark-mode select {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode select:focus {
+    border-color: #4CAF50;
+}
+
+/* Gaya tabel */
+.dark-mode table,
+.dark-mode th,
+.dark-mode td {
+    background-color: #2a2a2a;
+    border: 1px solid #555555;
+}
+
+.dark-mode th {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+.dark-mode #totalUang {
+    color: #ffffff; /* Mengubah warna teks menjadi putih */
+}
+/* Tombol reset tetap merah dalam mode gelap */
+.dark-mode button.reset {
+    background-color: #f44336; /* Warna merah untuk tombol reset */
+    color: white; /* Warna teks tombol tetap putih */
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
+}
+
+.dark-mode button.reset:hover {
+    background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
+    font-weight: bold; /* Membuat teks tombol menjadi tebal */
+}
