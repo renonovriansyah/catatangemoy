@@ -152,6 +152,7 @@ th {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
+    text-align: center;
     font-weight: bold; /* Menebalkan teks total uang */
 }
 
@@ -162,3 +163,65 @@ button.reset {
 button.reset:hover {
     background-color: #d32f2f; /* Warna saat hover untuk tombol reset */
 }
+/* Modal - Perhatian */
+.modal {
+    display: none; /* Disembunyikan secara default */
+    position: fixed;
+    z-index: 1; /* Agar modal berada di atas konten lainnya */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll jika modal besar */
+    background-color: rgb(0, 0, 0); /* Latar belakang gelap */
+    background-color: rgba(0, 0, 0, 0.4); /* Efek transparan */
+}
+
+/* Konten Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+}
+
+/* Tombol Close (X) */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button#confirmReset {
+    background-color: red;
+    color: white;
+}
+
+button#confirmReset:hover {
+    background-color: darkred;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+

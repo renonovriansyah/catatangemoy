@@ -2,13 +2,19 @@ let dataPengeluaran = JSON.parse(localStorage.getItem("dataPengeluaran")) || [];
 
 // Daftar kategori untuk konsistensi
 const daftarKategori = {
-    makanan: "Makanan",
+    makanan: "Beli Makanan",
+    kebutuhankos: "Belanja Kebutuhan Kos",
+    masak: "Belanja Untuk Masak",
     transportasi: "Bensin Motor",
     pulsa: "Paket & Wifi",
     akademik: "Kebutuhan Kuliah",
     pergimas: "Pergi Dengan Mas",
     pergikawan: "Pergi Dengan Teman",
     lainnya: "Pengeluaran Tak Terduga",
+    dikirimbapak: "Dikirim Bapak",
+    tabungandedek: "Tabungan Dedek",
+    dikasihayuk: "Dikasih Ayuk",
+    ditambahinmas: "Ditambahin Mas"
 };
 
 // Fungsi untuk mengkapitalisasi setiap kata
@@ -22,29 +28,46 @@ function formatInput() {
     inputField.value = inputVal ? parseInt(inputVal).toLocaleString() : ""; // Format dengan pemisah ribuan
 }
 
-// Tampilkan dropdown kategori dan input jumlah saat menambah pengeluaran
+// Fungsi untuk menampilkan kategori Pengeluaran
 function tambahPengeluaran() {
-    document.getElementById("inputContainer").style.display = "block"; // Tampilkan container input
-    document.getElementById("kategori").style.display = "block"; // Tampilkan dropdown kategori
-    document.getElementById("kategoriLabel").style.display = "block"; // Tampilkan label kategori
-    document.getElementById("currentType").value = "pengeluaran"; // Set tipe ke pengeluaran
+    document.getElementById("inputContainer").style.display = "block";
+    document.getElementById("kategori").style.display = "block";
+    document.getElementById("kategoriLabel").style.display = "block";
+    document.getElementById("currentType").value = "pengeluaran";
+    
+    const kategoriDropdown = document.getElementById("kategori");
+    kategoriDropdown.innerHTML = `
+        <option value="makanan">Beli Makanan</option>
+        <option value="kebutuhankos">Belanja Kebutuhan Kos</option>
+        <option value="masak">Belanja Untuk Masak</option>
+        <option value="transportasi">Bensin Motor</option>
+        <option value="pulsa">Paket & Wifi</option>
+        <option value="akademik">Kebutuhan Kuliah</option>
+        <option value="pergimas">Pergi Dengan Mas</option>
+        <option value="pergikawan">Pergi Dengan Teman</option>
+        <option value="lainnya">Pengeluaran Tak Terduga</option>
+    `;
 }
 
-// Tampilkan input untuk pemasukan
+// Fungsi untuk menampilkan kategori Pemasukan
 function tambahPemasukan() {
-    document.getElementById("inputContainer").style.display = "block"; // Tampilkan container input
-    document.getElementById("kategori").style.display = "none"; // Sembunyikan dropdown kategori
-    document.getElementById("kategoriLabel").style.display = "none"; // Sembunyikan label kategori
-    document.getElementById("currentType").value = "pemasukan"; // Set tipe ke pemasukan
+    document.getElementById("inputContainer").style.display = "block";
+    document.getElementById("kategori").style.display = "block";
+    document.getElementById("kategoriLabel").style.display = "block";
+    document.getElementById("currentType").value = "pemasukan";
+    
+    const kategoriDropdown = document.getElementById("kategori");
+    kategoriDropdown.innerHTML = `
+        <option value="dikirimbapak">Dikirim Bapak</option>
+        <option value="tabungandedek">Tabungan Dedek</option>
+        <option value="dikasihayuk">Dikasih Ayuk</option>
+        <option value="ditambahinmas">Ditambahin Mas</option>
+    `;
 }
 
 // Menambah data baik pengeluaran atau pemasukan
 function tambahData(tipe) {
-    let kategori = "Uang Masuk"; // Untuk pemasukan
-    if (tipe === "pengeluaran") {
-        kategori = document.getElementById("kategori").value; // Ambil kategori dari dropdown
-    }
-    
+    let kategori = document.getElementById("kategori").value; // Ambil kategori dari dropdown
     const jumlahText = document.getElementById("jumlah").value.replace(/,/g, ""); // Menghapus format koma
     const jumlah = parseFloat(jumlahText) || 0; // Pastikan untuk mengkonversi ke float
     const tanggal = new Date();
@@ -73,14 +96,13 @@ function updateTabel() {
     const tbody = document.getElementById("tabelData").getElementsByTagName("tbody")[0];
     tbody.innerHTML = ""; // Kosongkan isi tabel
 
-    // Menampilkan data pengeluaran
     dataPengeluaran.forEach(item => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.tanggal}</td>
             <td>${item.waktu}</td>
             <td>${capitalizeWords(daftarKategori[item.kategori] || item.kategori)}</td>
-            <td>Rp ${item.jumlah.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>Rp ${item.jumlah.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
         `;
         tbody.appendChild(row); // Tambahkan baris ke tabel
     });
@@ -99,25 +121,42 @@ function hitungTotalUang() {
     let totalUang = totalPemasukan - totalPengeluaran;
 
     document.getElementById("totalUang").innerHTML = `
-        <h3>Total Uang Saat Ini: Rp ${totalUang.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+        <h3>Total Uang Saat Ini: Rp ${totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
     `;
 }
 
-// Menghapus semua data
+// Menghapus semua data dan reset total uang
 function resetData() {
-    dataPengeluaran = []; // Kosongkan data
-    localStorage.removeItem("dataPengeluaran"); // Hapus data dari local storage
-    updateTabel(); // Perbarui tabel
-    document.getElementById("totalUang").innerHTML = "<h3>Total Uang Saat Ini: Rp 0</h3>"; // Reset total uang
+    tampilkanModal();
+}
+
+// Menampilkan Modal
+function tampilkanModal() {
+    document.getElementById("modalPeringatan").style.display = "block";
+}
+
+// Menutup Modal
+function tutupModal() {
+    document.getElementById("modalPeringatan").style.display = "none";
+}
+
+// Konfirmasi Reset Data
+function konfirmasiReset() {
+    dataPengeluaran = []; 
+    localStorage.removeItem("dataPengeluaran"); 
+    updateTabel(); 
+    document.getElementById("totalUang").innerHTML = "<h3>Total Uang Saat Ini: Rp 0</h3>"; 
+    tutupModal();
 }
 
 // Fitur cancel
 function cancelInput() {
-    document.getElementById("jumlah").value = ""; // Kosongkan input jumlah
-    document.getElementById("inputContainer").style.display = "none"; // Sembunyikan container input
-    document.getElementById("kategori").style.display = "none"; // Sembunyikan dropdown kategori
-    document.getElementById("kategoriLabel").style.display = "none"; // Sembunyikan label kategori
+    document.getElementById("jumlah").value = ""; 
+    document.getElementById("inputContainer").style.display = "none"; 
+    document.getElementById("kategori").style.display = "none"; 
+    document.getElementById("kategoriLabel").style.display = "none"; 
 }
 
-// Muat data saat pertama kali halaman dibuka
+// Muat data dan total uang saat pertama kali halaman dibuka
 updateTabel();
+hitungTotalUang();

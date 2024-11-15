@@ -3,41 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catatan Keuangan Gendut</title>
+    <title>Catatan Keuangan Gemoy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="container">
-        <h1>Catatan Keuangan Gendut</h1>
+        <h1>Catatan Keuangan Gemoy</h1>
         
         <div class="input-group">
             <button id="tambahPengeluaran" onclick="tambahPengeluaran()">Tambah Pengeluaran</button>
             <button id="tambahPemasukan" onclick="tambahPemasukan()">Tambah Pemasukan</button>
         </div>
-
+        
         <input type="hidden" id="currentType" value=""> <!-- Input tersembunyi untuk menyimpan tipe -->
-
+        
         <div id="inputContainer" style="display:none;">
             <div class="input-row">
                 <div id="kategoriContainer">
+                    <!-- Kategori Dropdown -->
                     <label for="kategori" id="kategoriLabel">Pilih Kategori:</label>
                     <select id="kategori">
-                        <option value="makanan">Makanan</option>
+                        <!-- Kategori Pengeluaran (akan tampil saat tambah pengeluaran) -->
+                        <option value="makanan">Beli Makanan</option>
+                        <option value="kebutuhankos">Belanja Kebutuhan Kos</option>
+                        <option value="masak">Belanja Untuk Masak</option>
                         <option value="transportasi">Bensin Motor</option>
                         <option value="pulsa">Paket & Wifi</option>
                         <option value="akademik">Kebutuhan Kuliah</option>
                         <option value="pergimas">Pergi Dengan Mas</option>
                         <option value="pergikawan">Pergi Dengan Teman</option>
                         <option value="lainnya">Pengeluaran Tak Terduga</option>
+        
+                        <!-- Kategori Pemasukan (akan tampil saat tambah pemasukan) -->
+                        <option value="dikirimbapak">Dikirim Bapak</option>
+                        <option value="tabungandedek">Tabungan Dedek</option>
+                        <option value="dikasihayuk">Dikasih Ayuk</option>
+                        <option value="ditambahinmas">Ditambahin Mas</option>
                     </select>
                 </div>
-
+        
                 <div id="jumlahContainer" style="text-align: center;">
                     <label for="jumlah">Jumlah (Rp):</label>
                     <input type="text" id="jumlah" placeholder="Masukkan jumlah" oninput="formatInput()" style="width: 50%; margin: 0 auto;">
                 </div>
             </div>
 
+            <!-- Tombol "Batal" dan "Simpan" hanya akan muncul saat inputContainer aktif, sesuai versi lama -->
             <div id="actionButtons">
                 <button onclick="cancelInput()">Batal</button>
                 <button onclick="tambahData(document.getElementById('currentType').value)">Simpan</button>
@@ -50,15 +62,25 @@
                     <th>Tanggal</th>
                     <th>Waktu</th>
                     <th>Kategori</th>
-                    <th>Jumlah (Rp)</th>
+                    <th>Jumlah</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
 
-        <div id="totalUang"><h3>Total Uang Saat Ini: Rp 0</h3></div>
+        <div id="totalUang">
+            <h3>Total Uang Saat Ini: Rp 0</h3>
+        </div>
         <button onclick="resetData()" class="reset">Reset</button>
-    </div>
+
+        <!-- Modal Peringatan -->
+        <div id="modalPeringatan" class="modal">
+            <div class="modal-content">
+                <h2>Gemoy Yakin Mau Reset? Nanti Gemoy Lupa</h2>
+                <button id="confirmReset" onclick="konfirmasiReset()">Reset Aja Mas, Inget Kok</button>
+                <button onclick="tutupModal()">Hm, Nggak Jadi Deh</button>
+            </div>
+        </div>
 
     <script src="script.js"></script>
 </body>
