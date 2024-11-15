@@ -141,7 +141,7 @@ table, th, td {
 
 th, td {
     padding: 10px;
-    text-align: left; /* Teks di kiri */
+    text-align: center; /* Teks di kiri */
     background-color: #f9f9f9; /* Latar belakang sel tabel */
 }
 
@@ -234,13 +234,13 @@ button:hover {
 /* Style untuk switch */
 .switch {
     position: relative;
-    top: 15px;
-    left:690px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60px;
     height: 34px;
+    margin-top: 20px; /* Tambahkan margin-top untuk jarak lebih baik */
+    margin-left: auto; /* Menjaga agar berada di sebelah kanan */
 }
 
 .switch i {
