@@ -139,7 +139,7 @@ function hitungTotalUang() {
     let totalUang = totalPemasukan - totalPengeluaran;
 
     // Format angka dengan titik sebagai pemisah ribuan
-    let formattedTotal = totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    let formattedTotal = totalUang.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     // Memasukkan total uang ke dalam elemen HTML
     document.getElementById("totalUang").innerHTML = `
