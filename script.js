@@ -89,7 +89,10 @@ function tambahData(tipe) {
     const jumlahText = document.getElementById("jumlah").value.replace(/,/g, ""); // Menghapus format koma
     const jumlah = parseFloat(jumlahText) || 0; // Pastikan untuk mengkonversi ke float
     const tanggal = new Date();
-    const tanggalStr = tanggal.toISOString().split("T")[0];
+
+    // Mengubah format tanggal menjadi dd/mm/yyyy
+    const tanggalStr = `${("0" + tanggal.getDate()).slice(-2)}/${("0" + (tanggal.getMonth() + 1)).slice(-2)}/${tanggal.getFullYear()}`;
+
     const waktuStr = tanggal.toLocaleTimeString("id-ID");
 
     if (jumlah <= 0) {
