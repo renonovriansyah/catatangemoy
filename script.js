@@ -138,14 +138,14 @@ function hitungTotalUang() {
 
     let totalUang = totalPemasukan - totalPengeluaran;
 
-    // Format angka dengan titik sebagai pemisah ribuan
-    let formattedTotal = totalUang.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    // Memasukkan total uang ke dalam elemen HTML
+
+    // Tampilkan hasil ke elemen HTML
     document.getElementById("totalUang").innerHTML = `
-        <h3>Sekarang Duit Gemoy Rp. ${formattedTotal}</h3>
+        <h3>Sisa Duit Gemoy Rp. ${totalUang.toFixed().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
     `;
 }
+
 
 // Menghapus semua data dan reset total uang
 function resetData() {
