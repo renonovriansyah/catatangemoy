@@ -142,7 +142,7 @@ function hitungTotalUang() {
 
     // Tampilkan hasil ke elemen HTML
     document.getElementById("totalUang").innerHTML = `
-        <h3>Sisa Duit Gemoy Rp. ${totalUang.toFixed().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
+        <h3>Sisa Duit Gemoy Rp. ${totalUang.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
     `;
 }
 
