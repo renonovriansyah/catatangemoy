@@ -93,7 +93,7 @@ function tambahData(tipe) {
     const waktuStr = tanggal.toLocaleTimeString("id-ID");
 
     if (jumlah <= 0) {
-        alert("Masukkan Jumlahnya Dulu Gemoy");
+        alert("Masukin Jumlahnya Dulu Gemoy");
         return;
     }
 
@@ -148,7 +148,7 @@ if (!isNaN(totalUang)) {
         <h3>Sisa Duit Gemoy Rp. ${formattedTotal}</h3>
     `;
 } else {
-    document.getElementById("totalUang").innerHTML = "<h3>Input tidak valid</h3>";
+    document.getElementById("totalUang").innerHTML = "<h3>Sepertinya Ada Yang Salah</h3>";
 }
 }
 
