@@ -120,7 +120,7 @@ function updateTabel() {
             <td>${item.tanggal}</td>
             <td>${item.waktu}</td>
             <td>${capitalizeWords(daftarKategori[item.kategori] || item.kategori)}</td>
-            <td>Rp. ${item.jumlah.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>Rp. ${item.jumlah.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
         `;
         tbody.appendChild(row); // Tambahkan baris ke tabel
     });
@@ -138,14 +138,19 @@ function hitungTotalUang() {
 
     let totalUang = totalPemasukan - totalPengeluaran;
 
-
+// Pastikan totalUang valid sebelum diproses
+if (!isNaN(totalUang)) {
+    // Format angka dengan dua angka di belakang koma dan pemisah ribuan menggunakan titik
+    let formattedTotal = totalUang.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     // Tampilkan hasil ke elemen HTML
     document.getElementById("totalUang").innerHTML = `
-        <h3>Sisa Duit Gemoy Rp. ${totalUang.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h3>
+        <h3>Sisa Duit Gemoy Rp. ${formattedTotal}</h3>
     `;
+} else {
+    document.getElementById("totalUang").innerHTML = "<h3>Input tidak valid</h3>";
 }
-
+}
 
 // Menghapus semua data dan reset total uang
 function resetData() {
