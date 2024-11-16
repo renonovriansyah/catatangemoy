@@ -91,7 +91,6 @@ function tambahData(tipe) {
     const tanggal = new Date();
     const tanggalStr = tanggal.toISOString().split("T")[0];
     const waktuStr = tanggal.toLocaleTimeString("id-ID");
-    
 
     if (jumlah <= 0) {
         alert("Masukkan Jumlahnya Dulu Gemoy");
@@ -140,7 +139,7 @@ function hitungTotalUang() {
     let totalUang = totalPemasukan - totalPengeluaran;
 
     // Format angka dengan titik sebagai pemisah ribuan
-    let formattedTotal = totalUang.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    let formattedTotal = totalUang.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     // Memasukkan total uang ke dalam elemen HTML
     document.getElementById("totalUang").innerHTML = `
