@@ -98,7 +98,7 @@ function tambahData(tipe) {
     }
 
     // Menyimpan data baru ke array
-    dataPengeluaran.push({ tanggal: tanggalStr, waktu: waktuStr, kategori, jumlah, tipe });
+    dataPengeluaran.unshift({ tanggal: tanggalStr, waktu: waktuStr, kategori, jumlah, tipe });
     localStorage.setItem("dataPengeluaran", JSON.stringify(dataPengeluaran));
 
     // Perbarui tampilan tabel dan kosongkan input jumlah
