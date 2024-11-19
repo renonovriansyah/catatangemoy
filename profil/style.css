@@ -1,0 +1,238 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #f4f4f4;
+  background-color: #1a1a2e;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background: #222;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #ffcc00;
+}
+
+.header h1 span {
+  color: #f4f4f4;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.header nav a {
+  margin: 0 10px;
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: #ffcc00;
+}
+
+/* About Section */
+.about {
+  background: #2a2a3e;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+}
+
+/* Section Portfolio */
+.portfolio {
+  padding: 40px 0; /* Hanya tambahkan jarak atas dan bawah */
+}
+
+.portfolio h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffcc00; /* Warna teks mengikuti default Anda */
+}
+
+.portfolio p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: inherit; /* Warna teks mengikuti default Anda */
+}
+
+/* Grid Styling */
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 15px;
+}
+
+/* Item Styling */
+.portfolio-item {
+  text-decoration: none; /* Hilangkan garis bawah */
+  color: inherit; /* Warna teks mengikuti default */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #f8f9fa; /* Latar belakang abu-abu muda seperti di Services */
+}
+
+/* Gambar */
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Text Below Images */
+.portfolio-item p {
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #333; /* Latar belakang abu-abu muda */
+  color: #f4f4f4; /* Teks gelap agar mudah dibaca */
+  border-radius: 0 0 10px 10px; /* Membulatkan sudut bawah */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
+}
+
+/* Hover Effects - Teks */
+.portfolio-item:hover {
+  transform: scale(1.05); /* Zoom sedikit */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar */
+}
+
+/* Hover untuk Teks */
+.portfolio-item:hover p {
+  background-color: #444; /* Ubah latar belakang menjadi biru seperti Contact */
+  color: #ffcc00; /* Ubah warna teks menjadi putih saat hover */
+  cursor: pointer; /* Ubah kursor saat hover untuk menunjukkan interaktivitas */
+}
+
+/* Services Section */
+.services {
+  padding: 2rem 1rem;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+}
+
+.service p {
+  font-size: 1rem;
+  color: #ffffff; /* Warna putih untuk deskripsi */
+  margin: 0;
+}
+
+.service-box {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.service {
+  background: #333;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffcc00;
+  flex: 1;
+  max-width: 300px;
+}
+
+.service:hover {
+  background: #444;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Contact Section */
+.contact {
+  background: #2a2a3e;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  color: #f4f4f4;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: #444;
+  color: #ffcc00;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  margin-top: 2rem;
+}
+
+@keyframes gerakTeks {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.teks-bergerak {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  animation: gerakTeks 10s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .portfolio-gallery {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
