@@ -31,6 +31,7 @@
                     <label for="kategori" id="kategoriLabel">Pilih Kategori:</label>
                     <select id="kategori">
                         <!-- Kategori Pengeluaran (akan tampil saat tambah pengeluaran) -->
+                        <option value=""></option>
                         <option value="makanan">Beli Makanan</option>
                         <option value="kebutuhankos">Belanja Kebutuhan Kos</option>
                         <option value="masak">Belanja Untuk Masak</option>
@@ -42,6 +43,7 @@
                         <option value="lainnya">Pengeluaran Tak Terduga</option>
         
                         <!-- Kategori Pemasukan (akan tampil saat tambah pemasukan) -->
+                         <option value=""></option>
                         <option value="dikirimbapak">Dikirim Bapak</option>
                         <option value="tabungandedek">Tabungan Dedek</option>
                         <option value="dikasihayuk">Dikasih Ayuk</option>
@@ -53,6 +55,11 @@
                     <label for="jumlah">Jumlah:</label>
                     <input type="text" id="jumlah" placeholder="Masukkan jumlah" oninput="formatInput()" style="width: 50%; margin: 0 auto;">
                 </div>
+            </div>
+            <div id="keteranganContainer" style="text-align: center;">
+                <label for="keteranganContainer">Keterangan:</label>
+    <input type="text" id="keterangan" name="keterangan" placeholder="Pilih Dulu Kategorinya" style="width: 50%; margin: 0 auto;"/>
+
             </div>
 
             <!-- Tombol "Batal" dan "Simpan" hanya akan muncul saat inputContainer aktif, sesuai versi lama -->
@@ -69,6 +76,7 @@
                     <th>Waktu</th>
                     <th>Kategori</th>
                     <th>Jumlah</th>
+                    <th>Keterangan</th>
                 </tr>
             </thead>
             <tbody></tbody>

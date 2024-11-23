@@ -3,6 +3,7 @@ body {
     background-color: #f0f4f8; /* Warna latar belakang lebih lembut */
     margin: 0;
     padding: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .container {
@@ -63,15 +64,47 @@ button:hover {
     width: 100%; /* Memastikan baris menggunakan seluruh lebar */
 }
 
-#kategoriContainer,
-#jumlahContainer {
+/* Kategori dan Jumlah diatur dalam container fleksibel */
+#kategoriContainer, #jumlahContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%; /* Membatasi lebar masing-masing agar proporsional */
-    max-width: 300px; /* Batas lebar agar tidak terlalu besar */
+    width: 50%; /* Lebar proporsional */
+    max-width: 300px; /* Batas lebar agar tetap proporsional */
 }
 
+/* Penataan elemen label dan input */
+#kategoriContainer label,
+#jumlahContainer label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Mengatur input kategori dan jumlah */
+#kategori, #jumlah {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 70%; /* Lebar input sesuai dengan kontainer */
+}
+
+/* Efek fokus pada input */
+#kategori:focus, #jumlah:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px #007bff;
+}
+
+/* Menambah jarak antara form input */
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memusatkan konten */
+    margin-top: 20px;
+}
 label {
     font-weight: bold; /* Membuat label lebih tebal */
     margin-bottom: 5px; /* Menambahkan ruang di bawah label */
@@ -79,7 +112,8 @@ label {
 
 select,
 input[type="text"] {
-    width: 100%; /* Memastikan lebar input dan dropdown 100% dari kontainer */
+    width: auto; /* Memastikan lebar input dan dropdown 100% dari kontainer */
+    white-space: nowrap; /* Pastikan teks tidak terpotong */
     padding: 10px; /* Menambahkan padding untuk kenyamanan */
     border: 1px solid #ccc; /* Warna border netral */
     border-radius: 5px; /* Membuat sudut lebih halus */
@@ -162,7 +196,7 @@ th {
 }
 @media (max-width: 600px) {
     #totalUang h3 {
-        font-size: 14px; /* Ukuran font lebih kecil di layar kecil */
+        font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
         text-align: center; /* Pusatkan teks */
     }
 }
@@ -220,7 +254,7 @@ button.reset:hover {
 }
 
 button {
-    margin-top: 10px;
+    margin-top: 10px 0;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -266,13 +300,16 @@ button:hover {
 
 .icon-left {
     left: 7px;
-    bottom: -px;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Gunakan transform untuk presisi */
     z-index: 2; /* Menempatkan ikon matahari di depan */
     color: #f8f8ff; /* Warna kuning untuk matahari */
 }
 
 .icon-right {
     right: 7px;
+    top: 50%;
+    transform: translate(50%, -50%);
     z-index: 1; /* Ikon bulan di belakang */
     color: #555; /* Warna abu-abu untuk bulan */
 }
@@ -377,7 +414,7 @@ input:checked + .slider:before {
 .dark-mode th,
 .dark-mode td {
     background-color: #2a2a2a;
-    border: 1px solid #555555;
+    border: 1px solid #444; /* Warna lebih serasi dengan mode gelap */
 }
 
 .dark-mode th {
@@ -410,4 +447,32 @@ input:checked + .slider:before {
 .dark-mode .modal-content {
     background-color: #333333; /* Latar belakang konten modal lebih gelap */
     color: #ffffff; /* Warna teks putih */
+}
+
+.dark-mode #keteranganContainer input {
+    background-color: #333;
+}
+/* Sama seperti #kategoriContainer dan #jumlahContainer */
+#keteranganContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Menyelaraskan input dengan gaya pada #kategoriContainer dan #jumlahContainer */
+#keteranganContainer input {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+/* Menyelaraskan label dengan gaya yang sama pada #kategoriContainer dan #jumlahContainer */
+#keteranganContainer label {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
