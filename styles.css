@@ -169,11 +169,11 @@ table {
     margin-top: 20px; /* Memberikan ruang di atas tabel */
 }
 
-table, th, td {
+table, th, td, tr {
     border: 1px solid #ddd; /* Border tabel */
 }
 
-th, td {
+th, td, tr {
     padding: 10px;
     text-align: center; /* Teks di kiri */
     background-color: #f9f9f9; /* Latar belakang sel tabel */
@@ -198,6 +198,15 @@ th {
     #totalUang h3 {
         font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
         text-align: center; /* Pusatkan teks */
+    }
+    .table-wrapper th, .table-wrapper td {
+        font-size: 12px; /* Ukuran font lebih kecil */
+        padding: 8px; /* Kurangi padding agar tabel tidak terlalu lebar */
+    }
+
+    .table-wrapper {
+        width: 100%; /* Pastikan tabel tidak melampaui lebar container */
+        justify-content: center; /* Pastikan tabel tetap di tengah */
     }
 }
 
