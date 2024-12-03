@@ -194,27 +194,67 @@ th {
     text-align: center;
     font-weight: bold; /* Menebalkan teks total uang */
 }
+
 @media (max-width: 600px) {
+    /* Container */
     .container {
         max-width: 100%; /* Container akan memenuhi lebar layar */
         padding: 15px; /* Padding lebih kecil */
         margin: 20px auto; /* Memberikan jarak atas dan bawah */
     }
+
+    /* Total Uang */
     #totalUang h3 {
         font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
         text-align: center; /* Pusatkan teks */
     }
-    .table-wrapper th, .table-wrapper td {
-        font-size: 12px; /* Ukuran font lebih kecil */
-        padding: 0 10px; /* Kurangi padding agar tabel tidak terlalu lebar */
+
+    /* Gaya untuk Tampilan Mobile */
+@media (max-width: 600px) {
+    .table-wrapper {
+        padding: 10px; /* Tambahkan padding agar tabel tidak menempel ke pinggir */
     }
 
-    .table-wrapper {
-        width: 100%; /* Pastikan tabel tidak melampaui lebar container */
-        justify-content: center; /* Pastikan tabel tetap di tengah */
+    table {
+        font-size: 12px; /* Ukuran font lebih kecil untuk layar kecil */
+        max-width: 100%; /* Pastikan tabel tidak melebihi lebar layar */
     }
-    .tableData {
-        width: 100%; /* Tabel mengikuti lebar kontainer */
+
+    th, td {
+        padding: 8px; /* Mengurangi padding agar tabel tetap proporsional */
+    }
+}
+
+    /* Tombol */
+    .input-group button {
+        width: 100%; /* Membuat tombol lebar penuh pada perangkat kecil */
+        margin: 10px 0; /* Menambahkan jarak antar tombol */
+    }
+
+    /* Pengaturan Ukuran Font dan Padding Tombol */
+    .input-group button {
+        font-size: 14px; /* Ukuran font tombol */
+        padding: 12px 0; /* Padding lebih besar agar tombol lebih mudah dijangkau */
+    }
+
+    /* Mengatur Layout Form Input */
+    #kategoriContainer,
+    #jumlahContainer,
+    #keteranganContainer {
+        text-align: center;
+        margin-bottom: 10px; /* Menambahkan jarak antar elemen input */
+    }
+
+    /* Memastikan input memiliki lebar penuh di layar kecil */
+    #jumlah, #keterangan {
+        width: 100%; /* Input lebar penuh */
+        padding: 8px; /* Padding input */
+        margin: 5px 0; /* Menambahkan margin antara input */
+    }
+
+    /* Menyesuaikan ukuran teks pada input */
+    #jumlah, #keterangan {
+        font-size: 14px; /* Ukuran font input */
     }
 }
 
