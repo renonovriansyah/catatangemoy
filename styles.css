@@ -209,21 +209,23 @@ th {
         text-align: center; /* Pusatkan teks */
     }
 
-    /* Gaya untuk Tampilan Mobile */
-@media (max-width: 600px) {
+    /* Tabel */
+    .table-wrapper th, .table-wrapper td {
+        font-size: 12px; /* Ukuran font lebih kecil */
+        padding: 5px; /* Kurangi padding agar tabel tidak terlalu lebar */
+        text-align: center; /* Menyelaraskan teks ke tengah */
+    }
+
     .table-wrapper {
-        padding: 10px; /* Tambahkan padding agar tabel tidak menempel ke pinggir */
+        width: 100%; /* Pastikan tabel tidak melampaui lebar container */
+        justify-content: center; /* Pastikan tabel tetap di tengah */
+        overflow-x: auto; /* Membuat tabel bisa di-scroll horizontal jika terlalu lebar */
     }
 
-    table {
-        font-size: 12px; /* Ukuran font lebih kecil untuk layar kecil */
-        max-width: 100%; /* Pastikan tabel tidak melebihi lebar layar */
+    /* Tabel Data */
+    .tableData {
+        width: 100%; /* Tabel mengikuti lebar kontainer */
     }
-
-    th, td {
-        padding: 8px; /* Mengurangi padding agar tabel tetap proporsional */
-    }
-}
 
     /* Tombol */
     .input-group button {
