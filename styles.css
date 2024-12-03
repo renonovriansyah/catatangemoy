@@ -214,6 +214,7 @@ th {
         font-size: 12px; /* Ukuran font lebih kecil */
         padding: 5px; /* Kurangi padding agar tabel tidak terlalu lebar */
         text-align: center; /* Menyelaraskan teks ke tengah */
+        margin-left: 0%;
     }
 
     .table-wrapper {
@@ -225,6 +226,7 @@ th {
     /* Tabel Data */
     .tableData {
         width: 100%; /* Tabel mengikuti lebar kontainer */
+        margin-left: 0%;
     }
 
     /* Tombol */
