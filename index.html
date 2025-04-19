@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catatan Keuangan Gemoy</title>
     <link rel="stylesheet" href="styles.css">
-</head><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
 
 <body>  
     <label class="switch">
-        <i class="bi bi-brightness-high-fill icon-left"></i> <!-- Ikon mode terang di sebelah kiri -->
+        <i class="bi bi-brightness-high-fill icon-left"></i>
         <input type="checkbox" id="toggleDarkMode">
         <span class="slider round"></span>
-        <i class="bi bi-moon-fill icon-right"></i> <!-- Ikon mode gelap di sebelah kanan -->
+        <i class="bi bi-moon-fill icon-right"></i>
     </label>  
+
     <div class="container">
         <h1>Catatan Keuangan Gemoy</h1>
         
@@ -22,15 +24,13 @@
             <button id="tambahPemasukan" onclick="tambahPemasukan()">Tambah Pemasukan</button>
         </div>
         
-        <input type="hidden" id="currentType" value=""> <!-- Input tersembunyi untuk menyimpan tipe -->
-        
+        <input type="hidden" id="currentType" value="">
+
         <div id="inputContainer" style="display:none;">
             <div class="input-row">
                 <div id="kategoriContainer">
-                    <!-- Kategori Dropdown -->
                     <label for="kategori" id="kategoriLabel">Pilih Kategori:</label>
                     <select id="kategori">
-                        <!-- Kategori Pengeluaran (akan tampil saat tambah pengeluaran) -->
                         <option value=""></option>
                         <option value="makanan">Beli Makanan</option>
                         <option value="kebutuhankos">Belanja Kebutuhan Kos</option>
@@ -41,23 +41,20 @@
                         <option value="pergimas">Pergi Dengan Mas</option>
                         <option value="pergikawan">Pergi Dengan Teman</option>
                         <option value="lainnya">Pengeluaran Tak Terduga</option>
-        
-                        <!-- Kategori Pemasukan (akan tampil saat tambah pemasukan) -->
-                         <option value=""></option>
                         <option value="dikirimbapak">Dikirim Bapak</option>
                         <option value="tabungandedek">Tabungan Dedek</option>
                         <option value="dikasihayuk">Dikasih Ayuk</option>
                         <option value="ditambahinmas">Ditambahin Mas</option>
                     </select>
                 </div>
-        
+
                 <div id="jumlahContainer" style="text-align: center;">
                     <label for="jumlah">Jumlah:</label>
                     <input type="text" id="jumlah" placeholder="Masukkan jumlah" oninput="formatInput()" style="width: 50%; margin: 0 auto;">
                 </div>
             </div>
 
-            <!-- Tombol "Batal" dan "Simpan" hanya akan muncul saat inputContainer aktif, sesuai versi lama -->
+            <!-- Tombol Aksi -->
             <div id="actionButtons">
                 <button onclick="cancelInput()">Batal</button>
                 <button onclick="tambahData(document.getElementById('currentType').value)">Simpan</button>
@@ -74,22 +71,24 @@
                         <th>Jumlah</th>
                     </tr>
                 </thead>
-            <tbody></tbody>
-        </table>
+                <tbody></tbody>
+            </table>
 
-        <div id="totalUang">
-            <h3>Sekarang Duit Gemoy Rp. 0</h3>
-        </div>
-        <button onclick="resetData()" class="reset">Reset</button>
+            <div id="totalUang">
+                <h3>Sekarang Duit Gemoy Rp. 0</h3>
+            </div>
+            <button onclick="resetData()" class="reset">Reset</button>
 
-        <!-- Modal Peringatan -->
-        <div id="modalPeringatan" class="modal">
-            <div class="modal-content">
-                <h2>Gemoy Yakin? Nanti Gemoy Lupa</h2>
-                <button id="confirmReset" onclick="konfirmasiReset()">Reset Aja Mas, Inget Kok</button>
-                <button onclick="tutupModal()">Hm, Nggak Jadi Deh</button>
+            <!-- Modal -->
+            <div id="modalPeringatan" class="modal">
+                <div class="modal-content">
+                    <h2>Gemoy Yakin? Nanti Gemoy Lupa</h2>
+                    <button id="confirmReset" onclick="konfirmasiReset()">Reset Aja Mas, Inget Kok</button>
+                    <button onclick="tutupModal()">Hm, Nggak Jadi Deh</button>
+                </div>
             </div>
         </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
