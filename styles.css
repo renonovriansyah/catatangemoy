@@ -507,7 +507,4 @@ input:checked + .slider:before {
     color: #ffffff; /* Warna teks putih */
 }
 
-.dark-mode #keteranganContainer input {
-    background-color: #333;
-}
 
