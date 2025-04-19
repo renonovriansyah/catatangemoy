@@ -214,7 +214,6 @@ th {
         font-size: 12px; /* Ukuran font lebih kecil */
         padding: 5px; /* Kurangi padding agar tabel tidak terlalu lebar */
         text-align: center; /* Menyelaraskan teks ke tengah */
-        margin-left: 0%;
     }
 
     .table-wrapper {
@@ -226,7 +225,6 @@ th {
     /* Tabel Data */
     .tableData {
         width: 100%; /* Tabel mengikuti lebar kontainer */
-        margin-left: 0%;
     }
 
     /* Tombol */
@@ -243,21 +241,20 @@ th {
 
     /* Mengatur Layout Form Input */
     #kategoriContainer,
-    #jumlahContainer,
-    #keteranganContainer {
+    #jumlahContainer {
         text-align: center;
         margin-bottom: 10px; /* Menambahkan jarak antar elemen input */
     }
 
     /* Memastikan input memiliki lebar penuh di layar kecil */
-    #jumlah, #keterangan {
+    #jumlah {
         width: 100%; /* Input lebar penuh */
         padding: 8px; /* Padding input */
         margin: 5px 0; /* Menambahkan margin antara input */
     }
 
     /* Menyesuaikan ukuran teks pada input */
-    #jumlah, #keterangan {
+    #jumlah {
         font-size: 14px; /* Ukuran font input */
     }
 }
@@ -513,27 +510,4 @@ input:checked + .slider:before {
 .dark-mode #keteranganContainer input {
     background-color: #333;
 }
-/* Sama seperti #kategoriContainer dan #jumlahContainer */
-#keteranganContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
 
-/* Menyelaraskan input dengan gaya pada #kategoriContainer dan #jumlahContainer */
-#keteranganContainer input {
-    padding: 8px;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    background-color: #ffffff;
-}
-
-/* Menyelaraskan label dengan gaya yang sama pada #kategoriContainer dan #jumlahContainer */
-#keteranganContainer label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
